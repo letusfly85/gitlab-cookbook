@@ -1,17 +1,15 @@
-gitlab Cookbook
+GitLab Cookbook
 ===============
-TODO: Enter the cookbook description here.
+GitLabの環境を量産するためのRecipeセットを目指します。
 
-e.g.
-This cookbook makes your favorite breakfast sandwich.
 
 Requirements
 ------------
-TODO: List your cookbook requirements. Be sure to include any requirements this cookbook has on platforms, libraries, other cookbooks, packages, operating systems, etc.
+本RecipeのGitLabはUbuntu14.04で動作することを目的としています。
+また、git, mysql, rubyがインストールされている必要があります。
 
-e.g.
 #### packages
-- `toaster` - gitlab needs toaster to brown your bagel.
+- `ruby` - gitlab needs ruby version 2.1.3
 
 Attributes
 ----------
