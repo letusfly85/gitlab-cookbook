@@ -7,8 +7,15 @@
 # All rights reserved - Do Not Redistribute
 #
 
-bash "download gitlab deb" do
-  CODE <<-EOS
-    wget https://downloads-packages.s3.amazonaws.com/ubuntu-14.04/gitlab_7.4.2-omnibus-1_amd64.deb
-  EOS
+deb_file = "gitlab_7.4.2-omnibus-1_amd64.deb"
+deb_cksum = "f818cc000027813dba1eef6f686073fd7bc4a7613f36bab45f58a00da4b3e8f5"
+cookbook_file "/tmp/#{deb_file}" do
+  mode 00644
+  checksum deb_cksum
+  not_if { File.exists? "/tmp/#{deb_file}" }
+end
+
+package "gitlab_7.4.2" do
+  action: install
+  source "/tmp/#{deb_file}"
 end
