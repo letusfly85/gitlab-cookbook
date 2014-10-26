@@ -19,3 +19,16 @@ dpkg_package "gitlab_7.4.2" do
   action :install
   source "/tmp/#{deb_file}"
 end
+
+template "/etc/gitlab/gitlab.rb" do
+  owner "root"
+  group "root"
+  mode  00600
+  source "gitlab.rb.erb"
+end
+
+bash "gitlab-ctl reconfigure" do
+  code <<-EOS
+    gitlab-ctl reconfigure
+  EOS
+end
