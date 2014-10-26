@@ -2,6 +2,19 @@ GitLab Cookbook
 ===============
 GitLabの環境を量産するためのRecipeセットを目指します。
 
+Setup
+===============
+debファイルが100MBを超過してgithubにはアップ出来ないので下記コマンドで事前取得する
+```shell
+wget https://downloads-packages.s3.amazonaws.com/ubuntu-14.04/gitlab_7.4.2-omnibus-1_amd64.deb -O files/default/gitlab_7.4.2-omnibus-1_amd64.deb
+```
+
+TODO
+===============
+下記サイトを参照し、git-dataをebs管理、s3バックアップするようにレシピを変更
+https://gitlab.com/gitlab-org/omnibus-gitlab/blob/master/README.m://gitlab.com/gitlab-org/omnibus-gitlab/blob/master/README.md
+
+
 
 Requirements
 ------------
