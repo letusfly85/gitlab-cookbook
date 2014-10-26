@@ -15,7 +15,7 @@ cookbook_file "/tmp/#{deb_file}" do
   not_if { File.exists? "/tmp/#{deb_file}" }
 end
 
-package "gitlab_7.4.2" do
-  action: install
+dpkg_package "gitlab_7.4.2" do
+  action :install
   source "/tmp/#{deb_file}"
 end
