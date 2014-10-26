@@ -27,8 +27,20 @@ template "/etc/gitlab/gitlab.rb" do
   source "gitlab.rb.erb"
 end
 
+#NOTE:
+#  後続のbundleでcのパッケージをインストールするためにインストールを実施する
+%w{g++ cmake mysql-client libmysqld-dev}.each do |pkg|
+  package pkg do
+    action :intall
+  end
+end
+
+#TODO:
+#  以下のコマンドは対話形式で実施可否を問われる。forceオプションにより対話スキップできるか確認できたらレシピに組み込む。
+#  gitlab-rake gitlab:setup
 bash "gitlab-ctl reconfigure" do
   code <<-EOS
+    exec /opt/gitlab/embedded/bin/chpst -e /opt/gitlab/etc/gitlab-rails/env /opt/gitlab/embedded/bin/bundle install --deployment --without development test postgres
     gitlab-ctl reconfigure
   EOS
 end

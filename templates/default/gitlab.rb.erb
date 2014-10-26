@@ -1,1 +1,10 @@
 external_url = '<%= node['gitlab']['external_url'] %>'
+
+postgresql['enable'] = false
+
+gitlab_rails['db_adapter']  = 'mysql2'
+gitlab_rails['db_encoding'] = 'utf8'
+gitlab_rails['db_host']     = '<%= node['gitlab']['db_host'] %>'
+gitlab_rails['db_port']     = '<%= node['gitlab']['db_port'] %>'
+gitlab_rails['db_username'] = '<%= node['gitlab']['db_username'] %>'
+gitlab_rails['db_password'] = '<%= node['gitlab']['db_password'] %>'
