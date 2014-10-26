@@ -25,10 +25,34 @@ e.g.
     <th>Default</th>
   </tr>
   <tr>
-    <td><tt>['gitlab']['bacon']</tt></td>
-    <td>Boolean</td>
-    <td>whether to include bacon</td>
-    <td><tt>true</tt></td>
+    <td><tt>['gitlab']['external_url']</tt></td>
+    <td>String</td>
+    <td>gitlabを提供するURL</td>
+    <td align=center><tt>-</tt></td>
+  </tr>
+  <tr>
+    <td><tt>['gitlab']['db_host']</tt></td>
+    <td>String</td>
+    <td>databaseのエンドポイント</td>
+    <td align=center><tt>-</tt></td>
+  </tr>
+  <tr>
+    <td><tt>['gitlab']['db_port']</tt></td>
+    <td>String</td>
+    <td>databaseのポート</td>
+    <td align=center><tt>-</tt></td>
+  </tr>
+  <tr>
+    <td><tt>['gitlab']['db_username']</tt></td>
+    <td>String</td>
+    <td>databaseのユーザ名</td>
+    <td align=center><tt>-</tt></td>
+  </tr>
+  <tr>
+    <td><tt>['gitlab']['db_password']</tt></td>
+    <td>String</td>
+    <td>databaseのパスワード</td>
+    <td align=center><tt>-</tt></td>
   </tr>
 </table>
 
@@ -42,10 +66,19 @@ Just include `gitlab` in your node's `run_list`:
 
 ```json
 {
-  "name":"my_node",
   "run_list": [
-    "recipe[gitlab]"
-  ]
+		  "recipe[gitlab]"
+  ],
+  "automatic": {
+    "ipaddress": "XX.XX.XX.XX"
+  },
+  "gitlab": {
+    "external_url": "XX.XX.XX.XX",
+	"db_host": "your end point",
+	"db_port": "your port",
+	"db_username": "git, for example",
+	"db_password": "git password"
+  }
 }
 ```
 
@@ -63,4 +96,4 @@ e.g.
 
 License and Authors
 -------------------
-Authors: TODO: List authors
+Authors: Shunsuke Wada
