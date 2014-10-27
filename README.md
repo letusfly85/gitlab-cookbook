@@ -14,7 +14,10 @@ TODO
 下記サイトを参照し、git-dataをebs管理、s3バックアップするようにレシピを変更
 https://gitlab.com/gitlab-org/omnibus-gitlab/blob/master/README.m://gitlab.com/gitlab-org/omnibus-gitlab/blob/master/README.md
 
+下記ファイルのservernameをIPで書き換えるようにレシピを変更
+/var/opt/gitlab/nginx/conf/gitlab-http.conf
 
+Gemfileのhttpsをhttpに書き換えるようにレシピを変更
 
 Requirements
 ------------

@@ -41,9 +41,9 @@ end
 bash "gitlab-ctl reconfigure" do
   code <<-EOS
     gitlab-ctl reconfigure
-    gitlab-ctl start
-    gitlab-ctl stop
-    exec /opt/gitlab/embedded/bin/chpst -e /opt/gitlab/etc/gitlab-rails/env /opt/gitlab/embedded/bin/bundle install --deployment --without development test postgres
+    #gitlab-ctl start
+    #gitlab-ctl stop
+    #exec /opt/gitlab/embedded/bin/chpst -e /opt/gitlab/etc/gitlab-rails/env /opt/gitlab/embedded/bin/bundle install --deployment --without development test postgres
     gitlab-ctl reconfigure
   EOS
 end
