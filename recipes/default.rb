@@ -29,9 +29,9 @@ end
 
 #NOTE:
 #  後続のbundleでcのパッケージをインストールするためにインストールを実施する
-%w{g++ cmake mysql-client libmysqld-dev}.each do |pkg|
+%w{g++ cmake mysql-client libmysqld-dev pkg-config}.each do |pkg|
   package pkg do
-    action :intall
+    action :install
   end
 end
 
@@ -40,6 +40,9 @@ end
 #  gitlab-rake gitlab:setup
 bash "gitlab-ctl reconfigure" do
   code <<-EOS
+    gitlab-ctl reconfigure
+    gitlab-ctl start
+    gitlab-ctl stop
     exec /opt/gitlab/embedded/bin/chpst -e /opt/gitlab/etc/gitlab-rails/env /opt/gitlab/embedded/bin/bundle install --deployment --without development test postgres
     gitlab-ctl reconfigure
   EOS
