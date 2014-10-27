@@ -18,6 +18,10 @@ https://gitlab.com/gitlab-org/omnibus-gitlab/blob/master/README.m://gitlab.com/g
 /var/opt/gitlab/nginx/conf/gitlab-http.conf
 
 Gemfileのhttpsをhttpに書き換えるようにレシピを変更
+http://segmentfault.com/blog/venmos/1190000000457771
+
+##    sudo openssl req -newkey rsa:2048 -x509 -nodes -days 3560 -out gitlab.crt -keyout gitlab.key
+##    sudo chmod o-r gitlab.key
 
 Requirements
 ------------
